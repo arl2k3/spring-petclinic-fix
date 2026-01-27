@@ -1,6 +1,6 @@
-
 package ec.edu.epn.petclinic.vet;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 @Table(name = "vets")
 public class Vet extends Person {
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "vet_specialties", joinColumns = @JoinColumn(name = "vet_id"),
 			inverseJoinColumns = @JoinColumn(name = "specialty_id"))
 	private Set<Specialty> specialties;

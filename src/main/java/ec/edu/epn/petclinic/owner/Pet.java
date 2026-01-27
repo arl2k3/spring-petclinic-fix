@@ -1,8 +1,8 @@
-
 package ec.edu.epn.petclinic.owner;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -34,7 +34,7 @@ public class Pet extends NamedEntity {
 	@JoinColumn(name = "type_id")
 	private PetType type;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "pet_id")
 	@OrderBy("date ASC")
 	private final Set<Visit> visits = new LinkedHashSet<>();
@@ -56,11 +56,16 @@ public class Pet extends NamedEntity {
 	}
 
 	public Collection<Visit> getVisits() {
-		return this.visits;
+		return Collections.unmodifiableSet(this.visits);
 	}
 
 	public void addVisit(Visit visit) {
-		getVisits().add(visit);
+		getVisitsInternal().add(visit);
+	}
+
+	// internal accessor for mutations
+	Set<Visit> getVisitsInternal() {
+		return this.visits;
 	}
 
 }

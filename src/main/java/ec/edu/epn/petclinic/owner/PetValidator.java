@@ -1,6 +1,6 @@
-
 package ec.edu.epn.petclinic.owner;
 
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
@@ -12,6 +12,7 @@ import org.springframework.validation.Validator;
  * validation rule in Java.
  * </p>
  */
+@Component
 public class PetValidator implements Validator {
 
 	private static final String REQUIRED = "required";

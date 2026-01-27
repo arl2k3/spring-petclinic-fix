@@ -1,7 +1,7 @@
-
 package ec.edu.epn.petclinic.owner;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,8 +17,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 /**
  * Simple JavaBean domain object representing an owner.
@@ -40,7 +40,7 @@ public class Owner extends Person {
 	@Pattern(regexp = "\\d{10}", message = "{telephone.invalid}")
 	private String telephone;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "owner_id")
 	@OrderBy("name")
 	private final List<Pet> pets = new ArrayList<>();
@@ -70,13 +70,18 @@ public class Owner extends Person {
 	}
 
 	public List<Pet> getPets() {
-		return this.pets;
+		return Collections.unmodifiableList(this.pets);
 	}
 
 	public void addPet(Pet pet) {
 		if (pet.isNew()) {
-			getPets().add(pet);
+			getPetsInternal().add(pet);
 		}
+	}
+
+	// expose internal accessor for modifications
+	List<Pet> getPetsInternal() {
+		return this.pets;
 	}
 
 	/**
@@ -94,7 +99,7 @@ public class Owner extends Person {
 	 * @return the Pet with the given id, or null if no such Pet exists for this Owner
 	 */
 	public Pet getPet(Integer id) {
-		for (Pet pet : getPets()) {
+		for (Pet pet : getPetsInternal()) {
 			if (!pet.isNew()) {
 				Integer compId = pet.getId();
 				if (Objects.equals(compId, id)) {
@@ -112,7 +117,7 @@ public class Owner extends Person {
 	 * @return the Pet with the given name, or null if no such Pet exists for this Owner
 	 */
 	public Pet getPet(String name, boolean ignoreNew) {
-		for (Pet pet : getPets()) {
+		for (Pet pet : getPetsInternal()) {
 			String compName = pet.getName();
 			if (compName != null && compName.equalsIgnoreCase(name)) {
 				if (!ignoreNew || !pet.isNew()) {

@@ -1,11 +1,13 @@
-
 package ec.edu.epn.petclinic.owner;
 
+import java.time.Clock;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ec.edu.epn.petclinic.system.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -33,9 +36,18 @@ class PetController {
 
 	private final PetTypeRepository types;
 
-	public PetController(OwnerRepository owners, PetTypeRepository types) {
+	private final PetValidator petValidator;
+
+	private final Clock clock;
+
+	@Value("${petclinic.pagination.size:5}")
+	private int pageSize;
+
+	public PetController(OwnerRepository owners, PetTypeRepository types, PetValidator petValidator, Clock clock) {
 		this.owners = owners;
 		this.types = types;
+		this.petValidator = petValidator;
+		this.clock = clock;
 	}
 
 	@ModelAttribute("types")
@@ -46,8 +58,7 @@ class PetController {
 	@ModelAttribute("owner")
 	public Owner findOwner(@PathVariable("ownerId") int ownerId) {
 		Optional<Owner> optionalOwner = this.owners.findById(ownerId);
-		Owner owner = optionalOwner.orElseThrow(() -> new IllegalArgumentException(
-				"Owner not found with id: " + ownerId + ". Please ensure the ID is correct "));
+		Owner owner = optionalOwner.orElseThrow(() -> new EntityNotFoundException("Owner", ownerId));
 		return owner;
 	}
 
@@ -60,8 +71,7 @@ class PetController {
 		}
 
 		Optional<Owner> optionalOwner = this.owners.findById(ownerId);
-		Owner owner = optionalOwner.orElseThrow(() -> new IllegalArgumentException(
-				"Owner not found with id: " + ownerId + ". Please ensure the ID is correct "));
+		Owner owner = optionalOwner.orElseThrow(() -> new EntityNotFoundException("Owner", ownerId));
 		return owner.getPet(petId);
 	}
 
@@ -72,7 +82,7 @@ class PetController {
 
 	@InitBinder("pet")
 	public void initPetBinder(WebDataBinder dataBinder) {
-		dataBinder.setValidator(new PetValidator());
+		dataBinder.setValidator(petValidator);
 	}
 
 	@GetMapping("/pets/new")
@@ -89,7 +99,7 @@ class PetController {
 		if (StringUtils.hasText(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), true) != null)
 			result.rejectValue("name", "duplicate", "already exists");
 
-		LocalDate currentDate = LocalDate.now();
+		LocalDate currentDate = LocalDate.now(clock);
 		if (pet.getBirthDate() != null && pet.getBirthDate().isAfter(currentDate)) {
 			result.rejectValue("birthDate", "typeMismatch.birthDate");
 		}
@@ -123,7 +133,7 @@ class PetController {
 			}
 		}
 
-		LocalDate currentDate = LocalDate.now();
+		LocalDate currentDate = LocalDate.now(clock);
 		if (pet.getBirthDate() != null && pet.getBirthDate().isAfter(currentDate)) {
 			result.rejectValue("birthDate", "typeMismatch.birthDate");
 		}

@@ -1,8 +1,8 @@
-
 package ec.edu.epn.petclinic.vet;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 class VetController {
 
 	private final VetRepository vetRepository;
+
+	@Value("${petclinic.pagination.size:5}")
+	private int pageSize;
 
 	public VetController(VetRepository vetRepository) {
 		this.vetRepository = vetRepository;
@@ -42,7 +45,6 @@ class VetController {
 	}
 
 	private Page<Vet> findPaginated(int page) {
-		int pageSize = 5;
 		Pageable pageable = PageRequest.of(page - 1, pageSize);
 		return vetRepository.findAll(pageable);
 	}
