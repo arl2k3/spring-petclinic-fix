@@ -48,7 +48,7 @@ class OwnerController {
 	public Owner findOwner(@PathVariable(name = "ownerId", required = false) Integer ownerId) {
 		return ownerId == null ? new Owner()
 				: this.owners.findById(ownerId)
-					.orElseThrow(() -> new EntityNotFoundException("Owner", ownerId));
+						.orElseThrow(() -> new EntityNotFoundException("Owner", ownerId));
 	}
 
 	@GetMapping("/owners/new")
@@ -63,9 +63,9 @@ class OwnerController {
 			return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
 		}
 
-		this.owners.save(owner);
+		Owner savedOwner = this.owners.save(owner);
 		redirectAttributes.addFlashAttribute("message", "New Owner Created");
-		return "redirect:/owners/" + owner.getId();
+		return "redirect:/owners/" + savedOwner.getId();
 	}
 
 	@GetMapping("/owners/find")
@@ -141,6 +141,7 @@ class OwnerController {
 
 	/**
 	 * Custom handler for displaying an owner.
+	 * 
 	 * @param ownerId the ID of the owner to display
 	 * @return a ModelMap with the model attributes for the view
 	 */

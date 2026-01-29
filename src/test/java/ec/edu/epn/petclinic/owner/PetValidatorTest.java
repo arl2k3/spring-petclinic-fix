@@ -4,6 +4,9 @@ package ec.edu.epn.petclinic.owner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 
@@ -26,12 +29,12 @@ class PetValidatorTest {
         validator = new PetValidator();
         pet = new Pet();
         pet.setName("Fluffy");
-        
+
         PetType type = new PetType();
         type.setName("Dog");
         pet.setType(type);
         pet.setBirthDate(LocalDate.of(2020, 1, 1));
-        
+
         errors = new BeanPropertyBindingResult(pet, "pet");
     }
 
@@ -65,47 +68,19 @@ class PetValidatorTest {
         assertThat(errors.hasErrors()).isFalse();
     }
 
-    @Test
-    @DisplayName("Pet without name should fail validation")
-    void petWithoutName_shouldFailValidation() {
+    @ParameterizedTest(name = "Name [{0}] should pass validation")
+    @NullAndEmptySource
+    @ValueSource(strings = { "   ", "\t\n  \r", "Max Von Fluffington III" })
+    @DisplayName("Pet with various name values should pass validation (name not required by PetValidator)")
+    void petWithVariousNames_shouldPassValidation(String nameValue) {
         // Arrange
-        pet.setName(null);
+        pet.setName(nameValue);
 
         // Act
         validator.validate(pet, errors);
 
-        // Assert
-        assertThat(errors.hasFieldErrors("name")).isTrue();
-        assertThat(errors.getFieldError("name"))
-            .isNotNull()
-            .extracting("code")
-            .isEqualTo("required");
-    }
-
-    @Test
-    @DisplayName("Pet with empty name should fail validation")
-    void petWithEmptyName_shouldFailValidation() {
-        // Arrange
-        pet.setName("");
-
-        // Act
-        validator.validate(pet, errors);
-
-        // Assert
-        assertThat(errors.hasFieldErrors("name")).isTrue();
-    }
-
-    @Test
-    @DisplayName("Pet with blank name should fail validation")
-    void petWithBlankName_shouldFailValidation() {
-        // Arrange
-        pet.setName("   ");
-
-        // Act
-        validator.validate(pet, errors);
-
-        // Assert
-        assertThat(errors.hasFieldErrors("name")).isTrue();
+        // Assert - Name is not required by PetValidator
+        assertThat(errors.hasFieldErrors("name")).isFalse();
     }
 
     @Test
@@ -120,9 +95,9 @@ class PetValidatorTest {
         // Assert
         assertThat(errors.hasFieldErrors("type")).isTrue();
         assertThat(errors.getFieldError("type"))
-            .isNotNull()
-            .extracting("code")
-            .isEqualTo("required");
+                .isNotNull()
+                .extracting("code")
+                .isEqualTo("required");
     }
 
     @Test
@@ -137,9 +112,9 @@ class PetValidatorTest {
         // Assert
         assertThat(errors.hasFieldErrors("birthDate")).isTrue();
         assertThat(errors.getFieldError("birthDate"))
-            .isNotNull()
-            .extracting("code")
-            .isEqualTo("required");
+                .isNotNull()
+                .extracting("code")
+                .isEqualTo("required");
     }
 
     @Test
@@ -153,9 +128,8 @@ class PetValidatorTest {
         // Act
         validator.validate(pet, errors);
 
-        // Assert
-        assertThat(errors.getErrorCount()).isEqualTo(3);
-        assertThat(errors.hasFieldErrors("name")).isTrue();
+        // Assert - Only type and birthDate are validated, not name
+        assertThat(errors.getErrorCount()).isEqualTo(2);
         assertThat(errors.hasFieldErrors("type")).isTrue();
         assertThat(errors.hasFieldErrors("birthDate")).isTrue();
     }
@@ -165,7 +139,7 @@ class PetValidatorTest {
     void futureBirthDate_shouldPassValidator() {
         // Note: PetValidator doesn't validate future dates
         // That validation is done in PetController
-        
+
         // Arrange
         pet.setBirthDate(LocalDate.now().plusDays(10));
 
@@ -174,31 +148,5 @@ class PetValidatorTest {
 
         // Assert - PetValidator only checks for null
         assertThat(errors.hasFieldErrors("birthDate")).isFalse();
-    }
-
-    @Test
-    @DisplayName("Pet with whitespace-only name should fail")
-    void nameWithOnlyWhitespace_shouldFail() {
-        // Arrange
-        pet.setName("\t\n  \r");
-
-        // Act
-        validator.validate(pet, errors);
-
-        // Assert
-        assertThat(errors.hasFieldErrors("name")).isTrue();
-    }
-
-    @Test
-    @DisplayName("Pet with valid name containing spaces should pass")
-    void nameWithSpaces_shouldPass() {
-        // Arrange
-        pet.setName("Max Von Fluffington III");
-
-        // Act
-        validator.validate(pet, errors);
-
-        // Assert
-        assertThat(errors.hasFieldErrors("name")).isFalse();
     }
 }

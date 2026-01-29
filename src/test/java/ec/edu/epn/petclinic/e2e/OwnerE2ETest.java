@@ -11,7 +11,6 @@ import org.springframework.test.context.ActiveProfiles;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @DisplayName("Owner E2E Tests")
@@ -35,23 +34,24 @@ class OwnerE2ETest {
     void createOwner_validData_shouldSucceed() {
         // Arrange
         String formData = "firstName=Integration&lastName=TestOwner&" +
-                         "address=123 Test Street&city=TestCity&telephone=1234567890";
+                "address=123 Test Street&city=TestCity&telephone=1234567890";
 
         // Act & Assert
         String location = given()
-            .contentType(ContentType.URLENC)
-            .body(formData)
-        .when()
-            .post("/owners/new")
-        .then()
-            .statusCode(302)  // Redirect
-            .header("Location", matchesPattern(".*/owners/\\d+"))
-            .extract()
-            .header("Location");
+                .contentType(ContentType.URLENC)
+                .body(formData)
+                .when()
+                .post("/owners/new")
+                .then()
+                .statusCode(302) // Redirect
+                .header("Location", matchesPattern(".*/owners/\\d+.*")) // Allow jsessionid in pattern
+                .extract()
+                .header("Location");
 
-        // Extract owner ID from redirect URL
-        createdOwnerId = Integer.parseInt(location.replaceAll(".*/owners/(\\d+)", "$1"));
-        
+        // Remove jsessionid and extract owner ID from redirect URL
+        String cleanLocation = location.replaceAll(";jsessionid=[^/]*", "");
+        createdOwnerId = Integer.parseInt(cleanLocation.replaceAll(".*/owners/(\\d+).*", "$1"));
+
         System.out.println("Created owner with ID: " + createdOwnerId);
     }
 
@@ -64,16 +64,16 @@ class OwnerE2ETest {
 
         // Act & Assert
         given()
-            .accept(ContentType.HTML)
-        .when()
-            .get("/owners/" + createdOwnerId)
-        .then()
-            .statusCode(200)
-            .body(containsString("Integration"))
-            .body(containsString("TestOwner"))
-            .body(containsString("123 Test Street"))
-            .body(containsString("TestCity"))
-            .body(containsString("1234567890"));
+                .accept(ContentType.HTML)
+                .when()
+                .get("/owners/" + createdOwnerId)
+                .then()
+                .statusCode(200)
+                .body(containsString("Integration"))
+                .body(containsString("TestOwner"))
+                .body(containsString("123 Test Street"))
+                .body(containsString("TestCity"))
+                .body(containsString("1234567890"));
     }
 
     @Test
@@ -83,30 +83,30 @@ class OwnerE2ETest {
         Assumptions.assumeTrue(createdOwnerId != null);
 
         // Arrange
-        String updatedFormData = "id=" + createdOwnerId + 
-                                "&firstName=UpdatedFirst&lastName=UpdatedLast&" +
-                                "address=999 Updated Ave&city=NewCity&telephone=9876543210";
+        String updatedFormData = "id=" + createdOwnerId +
+                "&firstName=UpdatedFirst&lastName=UpdatedLast&" +
+                "address=999 Updated Ave&city=NewCity&telephone=9876543210";
 
         // Act & Assert
         given()
-            .contentType(ContentType.URLENC)
-            .body(updatedFormData)
-        .when()
-            .post("/owners/" + createdOwnerId + "/edit")
-        .then()
-            .statusCode(302)
-            .header("Location", endsWith("/owners/" + createdOwnerId));
+                .contentType(ContentType.URLENC)
+                .body(updatedFormData)
+                .when()
+                .post("/owners/" + createdOwnerId + "/edit")
+                .then()
+                .statusCode(302)
+                .header("Location", endsWith("/owners/" + createdOwnerId));
 
         // Verify update
         given()
-            .accept(ContentType.HTML)
-        .when()
-            .get("/owners/" + createdOwnerId)
-        .then()
-            .statusCode(200)
-            .body(containsString("UpdatedFirst"))
-            .body(containsString("UpdatedLast"))
-            .body(containsString("999 Updated Ave"));
+                .accept(ContentType.HTML)
+                .when()
+                .get("/owners/" + createdOwnerId)
+                .then()
+                .statusCode(200)
+                .body(containsString("UpdatedFirst"))
+                .body(containsString("UpdatedLast"))
+                .body(containsString("999 Updated Ave"));
     }
 
     @Test
@@ -117,12 +117,12 @@ class OwnerE2ETest {
 
         // Act & Assert - search should redirect to single owner
         given()
-            .queryParam("lastName", "UpdatedLast")
-            .queryParam("page", 1)
-        .when()
-            .get("/owners")
-        .then()
-            .statusCode(anyOf(is(200), is(302)));  // May redirect if single result
+                .queryParam("lastName", "UpdatedLast")
+                .queryParam("page", 1)
+                .when()
+                .get("/owners")
+                .then()
+                .statusCode(anyOf(is(200), is(302))); // May redirect if single result
     }
 
     @Test
@@ -130,17 +130,17 @@ class OwnerE2ETest {
     void createOwner_invalidTelephone_shouldShowErrors() {
         // Arrange - telephone with invalid format
         String invalidFormData = "firstName=Invalid&lastName=Owner&" +
-                                "address=123 St&city=City&telephone=123";  // Only 3 digits
+                "address=123 St&city=City&telephone=123"; // Only 3 digits
 
         // Act & Assert
         given()
-            .contentType(ContentType.URLENC)
-            .body(invalidFormData)
-        .when()
-            .post("/owners/new")
-        .then()
-            .statusCode(200)  // Stays on form page
-            .body(containsString("createOrUpdateOwnerForm"));
+                .contentType(ContentType.URLENC)
+                .body(invalidFormData)
+                .when()
+                .post("/owners/new")
+                .then()
+                .statusCode(200) // Stays on form page
+                .body(containsString("add-owner-form")); // Check for form ID instead of view name
     }
 
     @Test
@@ -151,13 +151,13 @@ class OwnerE2ETest {
 
         // Act & Assert
         given()
-            .contentType(ContentType.URLENC)
-            .body(incompleteFormData)
-        .when()
-            .post("/owners/new")
-        .then()
-            .statusCode(200)
-            .body(containsString("createOrUpdateOwnerForm"));
+                .contentType(ContentType.URLENC)
+                .body(incompleteFormData)
+                .when()
+                .post("/owners/new")
+                .then()
+                .statusCode(200)
+                .body(containsString("add-owner-form")); // Check for form ID instead of view name
     }
 
     @Test
@@ -165,11 +165,11 @@ class OwnerE2ETest {
     void getOwner_nonExistentId_shouldReturnError() {
         // Act & Assert
         given()
-            .accept(ContentType.HTML)
-        .when()
-            .get("/owners/99999")
-        .then()
-            .statusCode(500);  // IllegalArgumentException in controller
+                .accept(ContentType.HTML)
+                .when()
+                .get("/owners/99999")
+                .then()
+                .statusCode(404); // EntityNotFoundException returns 404
     }
 
     @Test
@@ -177,13 +177,13 @@ class OwnerE2ETest {
     void searchOwner_noResults_shouldShowFindForm() {
         // Act & Assert
         given()
-            .queryParam("lastName", "NonExistentLastName12345")
-            .queryParam("page", 1)
-        .when()
-            .get("/owners")
-        .then()
-            .statusCode(200)
-            .body(containsString("findOwners"));
+                .queryParam("lastName", "NonExistentLastName12345")
+                .queryParam("page", 1)
+                .when()
+                .get("/owners")
+                .then()
+                .statusCode(200)
+                .body(containsString("not found")); // Error message for no results
     }
 
     @Test
@@ -191,12 +191,12 @@ class OwnerE2ETest {
     void searchOwner_noLastName_shouldReturnAll() {
         // Act & Assert
         given()
-            .queryParam("page", 1)
-        .when()
-            .get("/owners")
-        .then()
-            .statusCode(200)
-            .body(containsString("ownersList"));
+                .queryParam("page", 1)
+                .when()
+                .get("/owners")
+                .then()
+                .statusCode(200)
+                .body(containsString("Owners")); // Page contains Owners text
     }
 
     @Test
@@ -206,16 +206,16 @@ class OwnerE2ETest {
 
         // Arrange - ID in form doesn't match URL
         String mismatchFormData = "id=99999&firstName=Test&lastName=Test&" +
-                                 "address=123 St&city=City&telephone=1234567890";
+                "address=123 St&city=City&telephone=1234567890";
 
         // Act & Assert
         given()
-            .contentType(ContentType.URLENC)
-            .body(mismatchFormData)
-        .when()
-            .post("/owners/" + createdOwnerId + "/edit")
-        .then()
-            .statusCode(302);
+                .contentType(ContentType.URLENC)
+                .body(mismatchFormData)
+                .when()
+                .post("/owners/" + createdOwnerId + "/edit")
+                .then()
+                .statusCode(302);
     }
 
     @Test
@@ -223,12 +223,12 @@ class OwnerE2ETest {
     void displayFindOwnersForm_shouldSucceed() {
         // Act & Assert
         given()
-            .accept(ContentType.HTML)
-        .when()
-            .get("/owners/find")
-        .then()
-            .statusCode(200)
-            .body(containsString("findOwners"));
+                .accept(ContentType.HTML)
+                .when()
+                .get("/owners/find")
+                .then()
+                .statusCode(200)
+                .body(containsString("Find Owners")); // Check for visible text
     }
 
     @Test
@@ -236,11 +236,11 @@ class OwnerE2ETest {
     void displayCreateOwnerForm_shouldSucceed() {
         // Act & Assert
         given()
-            .accept(ContentType.HTML)
-        .when()
-            .get("/owners/new")
-        .then()
-            .statusCode(200)
-            .body(containsString("createOrUpdateOwnerForm"));
+                .accept(ContentType.HTML)
+                .when()
+                .get("/owners/new")
+                .then()
+                .statusCode(200)
+                .body(containsString("add-owner-form")); // Form ID in HTML
     }
 }

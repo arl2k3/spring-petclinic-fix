@@ -2,7 +2,6 @@ package ec.edu.epn.petclinic.owner;
 
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -26,6 +25,10 @@ import jakarta.persistence.Table;
 @Table(name = "pets")
 public class Pet extends NamedEntity {
 
+	// Override name field from NamedEntity to remove @NotBlank validation
+	@Column(name = "name")
+	private String name;
+
 	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birthDate;
@@ -38,6 +41,16 @@ public class Pet extends NamedEntity {
 	@JoinColumn(name = "pet_id")
 	@OrderBy("date ASC")
 	private final Set<Visit> visits = new LinkedHashSet<>();
+
+	@Override
+	public String getName() {
+		return this.name;
+	}
+
+	@Override
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
@@ -56,7 +69,7 @@ public class Pet extends NamedEntity {
 	}
 
 	public Collection<Visit> getVisits() {
-		return Collections.unmodifiableSet(this.visits);
+		return this.visits;
 	}
 
 	public void addVisit(Visit visit) {

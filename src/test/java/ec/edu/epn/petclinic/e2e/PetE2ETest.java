@@ -11,7 +11,6 @@ import org.springframework.test.context.ActiveProfiles;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @DisplayName("Pet E2E Tests")
@@ -36,19 +35,21 @@ class PetE2ETest {
     void setupOwner_shouldSucceed() {
         // Create an owner first
         String formData = "firstName=PetOwner&lastName=TestUser&" +
-                         "address=456 Pet Street&city=PetCity&telephone=5555555555";
+                "address=456 Pet Street&city=PetCity&telephone=5555555555";
 
         String location = given()
-            .contentType(ContentType.URLENC)
-            .body(formData)
-        .when()
-            .post("/owners/new")
-        .then()
-            .statusCode(302)
-            .extract()
-            .header("Location");
+                .contentType(ContentType.URLENC)
+                .body(formData)
+                .when()
+                .post("/owners/new")
+                .then()
+                .statusCode(302)
+                .extract()
+                .header("Location");
 
-        testOwnerId = Integer.parseInt(location.replaceAll(".*/owners/(\\d+)", "$1"));
+        // Remove jsessionid and extract owner ID
+        String cleanLocation = location.replaceAll(";jsessionid=[^/]*", "");
+        testOwnerId = Integer.parseInt(cleanLocation.replaceAll(".*/owners/(\\d+).*", "$1"));
         System.out.println("Created test owner with ID: " + testOwnerId);
     }
 
@@ -60,12 +61,12 @@ class PetE2ETest {
 
         // Act & Assert
         given()
-            .accept(ContentType.HTML)
-        .when()
-            .get("/owners/" + testOwnerId + "/pets/new")
-        .then()
-            .statusCode(200)
-            .body(containsString("createOrUpdatePetForm"));
+                .accept(ContentType.HTML)
+                .when()
+                .get("/owners/" + testOwnerId + "/pets/new")
+                .then()
+                .statusCode(200)
+                .body(containsString("New Pet")); // Check for page title
     }
 
     @Test
@@ -79,26 +80,26 @@ class PetE2ETest {
 
         // Act & Assert
         String location = given()
-            .contentType(ContentType.URLENC)
-            .body(petFormData)
-        .when()
-            .post("/owners/" + testOwnerId + "/pets/new")
-        .then()
-            .statusCode(302)
-            .header("Location", endsWith("/owners/" + testOwnerId))
-            .extract()
-            .header("Location");
+                .contentType(ContentType.URLENC)
+                .body(petFormData)
+                .when()
+                .post("/owners/" + testOwnerId + "/pets/new")
+                .then()
+                .statusCode(302)
+                .header("Location", endsWith("/owners/" + testOwnerId))
+                .extract()
+                .header("Location");
 
         System.out.println("Added pet to owner, redirected to: " + location);
 
         // Verify pet appears in owner details
         given()
-            .accept(ContentType.HTML)
-        .when()
-            .get("/owners/" + testOwnerId)
-        .then()
-            .statusCode(200)
-            .body(containsString("Fluffy"));
+                .accept(ContentType.HTML)
+                .when()
+                .get("/owners/" + testOwnerId)
+                .then()
+                .statusCode(200)
+                .body(containsString("Fluffy"));
     }
 
     @Test
@@ -111,13 +112,13 @@ class PetE2ETest {
         String duplicatePetData = "name=Fluffy&birthDate=2021-06-10&type=dog";
 
         given()
-            .contentType(ContentType.URLENC)
-            .body(duplicatePetData)
-        .when()
-            .post("/owners/" + testOwnerId + "/pets/new")
-        .then()
-            .statusCode(200)  // Stays on form
-            .body(containsString("already exists"));
+                .contentType(ContentType.URLENC)
+                .body(duplicatePetData)
+                .when()
+                .post("/owners/" + testOwnerId + "/pets/new")
+                .then()
+                .statusCode(200) // Stays on form
+                .body(containsString("already exists"));
     }
 
     @Test
@@ -130,13 +131,13 @@ class PetE2ETest {
 
         // Act & Assert
         given()
-            .contentType(ContentType.URLENC)
-            .body(futurePetData)
-        .when()
-            .post("/owners/" + testOwnerId + "/pets/new")
-        .then()
-            .statusCode(200)  // Stays on form due to validation error
-            .body(containsString("createOrUpdatePetForm"));
+                .contentType(ContentType.URLENC)
+                .body(futurePetData)
+                .when()
+                .post("/owners/" + testOwnerId + "/pets/new")
+                .then()
+                .statusCode(200) // Stays on form due to validation error
+                .body(containsString("createOrUpdatePetForm"));
     }
 
     @Test
@@ -149,13 +150,13 @@ class PetE2ETest {
 
         // Act & Assert
         given()
-            .contentType(ContentType.URLENC)
-            .body(incompleteData)
-        .when()
-            .post("/owners/" + testOwnerId + "/pets/new")
-        .then()
-            .statusCode(200)
-            .body(containsString("createOrUpdatePetForm"));
+                .contentType(ContentType.URLENC)
+                .body(incompleteData)
+                .when()
+                .post("/owners/" + testOwnerId + "/pets/new")
+                .then()
+                .statusCode(200)
+                .body(containsString("createOrUpdatePetForm"));
     }
 
     @Test
@@ -166,12 +167,12 @@ class PetE2ETest {
 
         // Act & Assert
         given()
-            .contentType(ContentType.URLENC)
-            .body(petData)
-        .when()
-            .post("/owners/99999/pets/new")
-        .then()
-            .statusCode(500);  // IllegalArgumentException
+                .contentType(ContentType.URLENC)
+                .body(petData)
+                .when()
+                .post("/owners/99999/pets/new")
+                .then()
+                .statusCode(404); // EntityNotFoundException returns 404
     }
 
     @Test
@@ -179,11 +180,11 @@ class PetE2ETest {
     void displayAddPetForm_nonExistentOwner_shouldFail() {
         // Act & Assert
         given()
-            .accept(ContentType.HTML)
-        .when()
-            .get("/owners/99999/pets/new")
-        .then()
-            .statusCode(500);
+                .accept(ContentType.HTML)
+                .when()
+                .get("/owners/99999/pets/new")
+                .then()
+                .statusCode(404); // EntityNotFoundException returns 404
     }
 
     @Test
@@ -192,41 +193,43 @@ class PetE2ETest {
     void completeFlow_ownerPetVisit_shouldSucceed() {
         // Step 1: Create owner
         String ownerData = "firstName=Complete&lastName=FlowTest&" +
-                          "address=789 Flow St&city=FlowCity&telephone=7777777777";
+                "address=789 Flow St&city=FlowCity&telephone=7777777777";
 
         String ownerLocation = given()
-            .contentType(ContentType.URLENC)
-            .body(ownerData)
-        .when()
-            .post("/owners/new")
-        .then()
-            .statusCode(302)
-            .extract()
-            .header("Location");
+                .contentType(ContentType.URLENC)
+                .body(ownerData)
+                .when()
+                .post("/owners/new")
+                .then()
+                .statusCode(302)
+                .extract()
+                .header("Location");
 
-        Integer flowOwnerId = Integer.parseInt(ownerLocation.replaceAll(".*/owners/(\\d+)", "$1"));
+        // Remove jsessionid and extract owner ID
+        String cleanOwnerLocation = ownerLocation.replaceAll(";jsessionid=[^/]*", "");
+        Integer flowOwnerId = Integer.parseInt(cleanOwnerLocation.replaceAll(".*/owners/(\\d+).*", "$1"));
 
         // Step 2: Add pet to owner
         String petData = "name=CompleteFlowPet&birthDate=2019-03-20&type=lizard";
 
         given()
-            .contentType(ContentType.URLENC)
-            .body(petData)
-        .when()
-            .post("/owners/" + flowOwnerId + "/pets/new")
-        .then()
-            .statusCode(302);
+                .contentType(ContentType.URLENC)
+                .body(petData)
+                .when()
+                .post("/owners/" + flowOwnerId + "/pets/new")
+                .then()
+                .statusCode(302);
 
         // Step 3: Verify owner has pet
         given()
-            .accept(ContentType.HTML)
-        .when()
-            .get("/owners/" + flowOwnerId)
-        .then()
-            .statusCode(200)
-            .body(containsString("CompleteFlowPet"))
-            .body(containsString("Complete"))
-            .body(containsString("FlowTest"));
+                .accept(ContentType.HTML)
+                .when()
+                .get("/owners/" + flowOwnerId)
+                .then()
+                .statusCode(200)
+                .body(containsString("CompleteFlowPet"))
+                .body(containsString("Complete"))
+                .body(containsString("FlowTest"));
     }
 
     @Test
@@ -238,12 +241,12 @@ class PetE2ETest {
         String duplicateData = "name=fluffy&birthDate=2021-01-01&type=snake";
 
         given()
-            .contentType(ContentType.URLENC)
-            .body(duplicateData)
-        .when()
-            .post("/owners/" + testOwnerId + "/pets/new")
-        .then()
-            .statusCode(200)
-            .body(containsString("already exists"));
+                .contentType(ContentType.URLENC)
+                .body(duplicateData)
+                .when()
+                .post("/owners/" + testOwnerId + "/pets/new")
+                .then()
+                .statusCode(200)
+                .body(containsString("already exists"));
     }
 }

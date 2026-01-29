@@ -1,6 +1,7 @@
 package ec.edu.epn.petclinic.owner;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -52,15 +53,15 @@ class VisitControllerTest {
         owner.getPetsInternal().add(pet);
 
         when(ownerRepository.findById(owner.getId())).thenReturn(Optional.of(owner));
-        when(ownerRepository.save(any(Owner.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        lenient().when(ownerRepository.save(any(Owner.class))).thenAnswer(invocation -> invocation.getArgument(0));
     }
 
     @Test
     @DisplayName("Should_renderVisitForm_When_InitNewVisit")
     void should_renderVisitForm_When_InitNewVisit() throws Exception {
         mockMvc.perform(get("/owners/{ownerId}/pets/{petId}/visits/new", owner.getId(), 10))
-            .andExpect(status().isOk())
-            .andExpect(view().name("pets/createOrUpdateVisitForm"));
+                .andExpect(status().isOk())
+                .andExpect(view().name("pets/createOrUpdateVisitForm"));
     }
 
     @Test
@@ -68,8 +69,8 @@ class VisitControllerTest {
     void should_redirectAfterVisitCreation_When_DataValid() throws Exception {
         mockMvc.perform(post("/owners/{ownerId}/pets/{petId}/visits/new", owner.getId(), 10)
                 .param("description", "Checkup"))
-            .andExpect(status().is3xxRedirection())
-            .andExpect(flash().attributeExists("message"));
+                .andExpect(status().is3xxRedirection())
+                .andExpect(flash().attributeExists("message"));
     }
 
     @Test
@@ -77,7 +78,7 @@ class VisitControllerTest {
     void should_returnFormWithErrors_When_VisitHasValidationErrors() throws Exception {
         mockMvc.perform(post("/owners/{ownerId}/pets/{petId}/visits/new", owner.getId(), 10)
                 .param("description", ""))
-            .andExpect(status().isOk())
-            .andExpect(view().name("pets/createOrUpdateVisitForm"));
+                .andExpect(status().isOk())
+                .andExpect(view().name("pets/createOrUpdateVisitForm"));
     }
 }

@@ -1,0 +1,545 @@
+2026-01-29 14:12:18,554 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-01-29 14:12:18,971 INFO o.a.j.JMeter: Loading user properties from: C:\ProgramData\chocolatey\lib\jmeter\tools\apache-jmeter-5.6.3\bin\user.properties
+2026-01-29 14:12:18,974 INFO o.a.j.JMeter: Loading system properties from: C:\ProgramData\chocolatey\lib\jmeter\tools\apache-jmeter-5.6.3\bin\system.properties
+2026-01-29 14:12:18,985 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-01-29 14:12:18,985 INFO o.a.j.JMeter: Version 5.6.3
+2026-01-29 14:12:18,985 INFO o.a.j.JMeter: java.version=24.0.1
+2026-01-29 14:12:18,985 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2026-01-29 14:12:18,985 INFO o.a.j.JMeter: os.name=Windows 11
+2026-01-29 14:12:18,985 INFO o.a.j.JMeter: os.arch=amd64
+2026-01-29 14:12:18,986 INFO o.a.j.JMeter: os.version=10.0
+2026-01-29 14:12:18,986 INFO o.a.j.JMeter: file.encoding=UTF-8
+2026-01-29 14:12:18,986 INFO o.a.j.JMeter: java.awt.headless=null
+2026-01-29 14:12:18,986 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-01-29 14:12:18,986 INFO o.a.j.JMeter: Available Processors =8
+2026-01-29 14:12:19,005 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-01-29 14:12:19,006 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-01-29 14:12:19,006 INFO o.a.j.JMeter: JMeterHome=C:\ProgramData\chocolatey\lib\jmeter\tools\apache-jmeter-5.6.3
+2026-01-29 14:12:19,006 INFO o.a.j.JMeter: user.dir  =D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix
+2026-01-29 14:12:19,007 INFO o.a.j.JMeter: PWD       =D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix
+2026-01-29 14:12:19,009 INFO o.a.j.JMeter: IP: 192.168.100.6 Name: TUF FullName: host.docker.internal
+2026-01-29 14:12:19,026 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2026-01-29 14:12:19,453 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2026-01-29 14:13:50,886 INFO o.a.j.s.FileServer: Default base='D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix'
+2026-01-29 14:13:50,889 INFO o.a.j.g.a.Load: Loading file: D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix\performance-tests\petclinic-load-test.jmx
+2026-01-29 14:13:50,889 INFO o.a.j.s.FileServer: Set new base='D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix\performance-tests'
+2026-01-29 14:13:51,137 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-01-29 14:13:51,169 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-01-29 14:13:51,171 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-01-29 14:13:51,172 INFO o.a.j.s.SaveService: Loading file: D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix\performance-tests\petclinic-load-test.jmx
+2026-01-29 14:13:51,196 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-01-29 14:13:51,196 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-01-29 14:13:51,196 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-01-29 14:13:51,196 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-01-29 14:13:51,196 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-01-29 14:13:51,196 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-01-29 14:13:51,240 WARN o.a.j.g.a.Load: Unexpected error. java.lang.NullPointerException: Cannot invoke "org.apache.jmeter.testelement.TestElement.getName()" because "element" is null
+java.lang.NullPointerException: Cannot invoke "org.apache.jmeter.testelement.TestElement.getName()" because "element" is null
+	at org.apache.jmeter.gui.AbstractJMeterGuiComponent.configure(AbstractJMeterGuiComponent.java:213) ~[ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.control.gui.LoopControlPanel.configure(LoopControlPanel.java:125) ~[ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.threads.gui.ThreadGroupGui.configure(ThreadGroupGui.java:135) ~[ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addComponent(JMeterTreeModel.java:162) ~[ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:131) ~[ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:123) ~[ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.GuiPackage.addSubTree(GuiPackage.java:555) ~[ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.action.Load.insertLoadedTree(Load.java:201) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:132) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:103) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.action.Load.doActionAfterCheck(Load.java:90) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.action.AbstractActionWithNoRunningTest.doAction(AbstractActionWithNoRunningTest.java:44) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:83) [ApacheJMeter_core.jar:5.6.3]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:65) [ApacheJMeter_core.jar:5.6.3]
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318) [?:?]
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:723) [?:?]
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:702) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2026-01-29 14:13:51,246 ERROR o.a.j.u.JMeterUtils: Cannot invoke "org.apache.jmeter.testelement.TestElement.getName()" because "element" is null
+2026-01-29 14:14:55,208 INFO o.a.j.g.a.Load: Loading file: D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix\performance-tests\petclinic-load-test-v2.jmx
+2026-01-29 14:14:55,208 INFO o.a.j.s.FileServer: Set new base='D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix\performance-tests'
+2026-01-29 14:14:55,208 INFO o.a.j.s.SaveService: Loading file: D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix\performance-tests\petclinic-load-test-v2.jmx
+2026-01-29 14:14:55,378 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-01-29 14:14:55,378 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-01-29 14:14:55,378 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-01-29 14:14:55,379 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-01-29 14:14:55,544 INFO o.a.j.s.FileServer: Set new base='D:\EPN\VII SEMESTRE\VERIFICACIÓN Y VALIDACIÓN DE SOFTWARE\spring-petclinic-fix\performance-tests'
+2026-01-29 14:15:04,102 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-01-29 14:15:04,103 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-01-29 14:15:04,103 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-01-29 14:15:04,103 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-01-29 14:15:04,103 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-01-29 14:15:04,154 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2026-01-29 14:15:04,190 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Home Page Test
+2026-01-29 14:15:04,190 INFO o.a.j.e.StandardJMeterEngine: Starting 50 threads for group Home Page Test.
+2026-01-29 14:15:04,190 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-01-29 14:15:04,190 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=50 ramp-up=10 delayedStart=false
+2026-01-29 14:15:04,195 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-1
+2026-01-29 14:15:04,212 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = TUF
+2026-01-29 14:15:04,220 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2026-01-29 14:15:04,229 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-01-29 14:15:04,229 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 2 : Vets Page Test
+2026-01-29 14:15:04,229 INFO o.a.j.e.StandardJMeterEngine: Starting 50 threads for group Vets Page Test.
+2026-01-29 14:15:04,229 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-01-29 14:15:04,229 INFO o.a.j.t.ThreadGroup: Starting thread group... number=2 threads=50 ramp-up=10 delayedStart=false
+2026-01-29 14:15:04,230 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-1
+2026-01-29 14:15:04,262 INFO o.a.j.t.ThreadGroup: Started thread group number 2
+2026-01-29 14:15:04,262 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 3 : Find Owners Test
+2026-01-29 14:15:04,262 INFO o.a.j.e.StandardJMeterEngine: Starting 50 threads for group Find Owners Test.
+2026-01-29 14:15:04,262 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-01-29 14:15:04,262 INFO o.a.j.t.ThreadGroup: Starting thread group... number=3 threads=50 ramp-up=10 delayedStart=false
+2026-01-29 14:15:04,265 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-1
+2026-01-29 14:15:04,297 INFO o.a.j.t.ThreadGroup: Started thread group number 3
+2026-01-29 14:15:04,297 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-01-29 14:15:04,394 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-2
+2026-01-29 14:15:04,430 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-2
+2026-01-29 14:15:04,464 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-2
+2026-01-29 14:15:04,592 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-3
+2026-01-29 14:15:04,631 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-3
+2026-01-29 14:15:04,666 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-3
+2026-01-29 14:15:04,794 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-4
+2026-01-29 14:15:04,831 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-4
+2026-01-29 14:15:04,865 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-4
+2026-01-29 14:15:04,993 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-5
+2026-01-29 14:15:05,030 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-5
+2026-01-29 14:15:05,065 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-5
+2026-01-29 14:15:05,194 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-6
+2026-01-29 14:15:05,230 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-6
+2026-01-29 14:15:05,265 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-6
+2026-01-29 14:15:05,393 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-7
+2026-01-29 14:15:05,431 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-7
+2026-01-29 14:15:05,463 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-7
+2026-01-29 14:15:05,591 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-8
+2026-01-29 14:15:05,631 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-8
+2026-01-29 14:15:05,663 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-8
+2026-01-29 14:15:05,791 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-9
+2026-01-29 14:15:05,831 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-9
+2026-01-29 14:15:05,863 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-9
+2026-01-29 14:15:05,991 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-10
+2026-01-29 14:15:06,030 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-10
+2026-01-29 14:15:06,063 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-10
+2026-01-29 14:15:06,191 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-11
+2026-01-29 14:15:06,230 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-11
+2026-01-29 14:15:06,268 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-11
+2026-01-29 14:15:06,392 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-12
+2026-01-29 14:15:06,432 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-12
+2026-01-29 14:15:06,465 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-12
+2026-01-29 14:15:06,593 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-13
+2026-01-29 14:15:06,631 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-13
+2026-01-29 14:15:06,664 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-13
+2026-01-29 14:15:06,791 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-14
+2026-01-29 14:15:06,831 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-14
+2026-01-29 14:15:06,863 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-14
+2026-01-29 14:15:06,992 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-15
+2026-01-29 14:15:07,031 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-15
+2026-01-29 14:15:07,064 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-15
+2026-01-29 14:15:07,192 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-16
+2026-01-29 14:15:07,231 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-16
+2026-01-29 14:15:07,262 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-16
+2026-01-29 14:15:07,391 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-17
+2026-01-29 14:15:07,430 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-17
+2026-01-29 14:15:07,463 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-17
+2026-01-29 14:15:07,590 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-18
+2026-01-29 14:15:07,630 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-18
+2026-01-29 14:15:07,663 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-18
+2026-01-29 14:15:07,791 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-19
+2026-01-29 14:15:07,831 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-19
+2026-01-29 14:15:07,863 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-19
+2026-01-29 14:15:07,990 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-20
+2026-01-29 14:15:08,030 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-20
+2026-01-29 14:15:08,064 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-20
+2026-01-29 14:15:08,191 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-21
+2026-01-29 14:15:08,230 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-21
+2026-01-29 14:15:08,262 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-21
+2026-01-29 14:15:08,390 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-22
+2026-01-29 14:15:08,431 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-22
+2026-01-29 14:15:08,466 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-22
+2026-01-29 14:15:08,590 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-23
+2026-01-29 14:15:08,630 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-23
+2026-01-29 14:15:08,664 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-23
+2026-01-29 14:15:08,793 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-24
+2026-01-29 14:15:08,831 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-24
+2026-01-29 14:15:08,864 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-24
+2026-01-29 14:15:08,993 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-25
+2026-01-29 14:15:09,031 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-25
+2026-01-29 14:15:09,063 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-25
+2026-01-29 14:15:09,192 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-26
+2026-01-29 14:15:09,232 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-26
+2026-01-29 14:15:09,264 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-26
+2026-01-29 14:15:09,390 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-27
+2026-01-29 14:15:09,429 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-27
+2026-01-29 14:15:09,464 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-27
+2026-01-29 14:15:09,592 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-28
+2026-01-29 14:15:09,632 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-28
+2026-01-29 14:15:09,663 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-28
+2026-01-29 14:15:09,791 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-29
+2026-01-29 14:15:09,831 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-29
+2026-01-29 14:15:09,864 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-29
+2026-01-29 14:15:09,991 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-30
+2026-01-29 14:15:10,030 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-30
+2026-01-29 14:15:10,063 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-30
+2026-01-29 14:15:10,192 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-31
+2026-01-29 14:15:10,231 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-31
+2026-01-29 14:15:10,263 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-31
+2026-01-29 14:15:10,391 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-32
+2026-01-29 14:15:10,429 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-32
+2026-01-29 14:15:10,463 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-32
+2026-01-29 14:15:10,590 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-33
+2026-01-29 14:15:10,630 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-33
+2026-01-29 14:15:10,662 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-33
+2026-01-29 14:15:10,791 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-34
+2026-01-29 14:15:10,831 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-34
+2026-01-29 14:15:10,863 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-34
+2026-01-29 14:15:10,990 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-35
+2026-01-29 14:15:11,030 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-35
+2026-01-29 14:15:11,063 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-35
+2026-01-29 14:15:11,191 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-36
+2026-01-29 14:15:11,231 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-36
+2026-01-29 14:15:11,263 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-36
+2026-01-29 14:15:11,390 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-37
+2026-01-29 14:15:11,431 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-37
+2026-01-29 14:15:11,463 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-37
+2026-01-29 14:15:11,591 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-38
+2026-01-29 14:15:11,630 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-38
+2026-01-29 14:15:11,663 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-38
+2026-01-29 14:15:11,790 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-39
+2026-01-29 14:15:11,829 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-39
+2026-01-29 14:15:11,862 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-39
+2026-01-29 14:15:11,991 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-40
+2026-01-29 14:15:12,031 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-40
+2026-01-29 14:15:12,062 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-40
+2026-01-29 14:15:12,191 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-41
+2026-01-29 14:15:12,230 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-41
+2026-01-29 14:15:12,263 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-41
+2026-01-29 14:15:12,393 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-42
+2026-01-29 14:15:12,431 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-42
+2026-01-29 14:15:12,464 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-42
+2026-01-29 14:15:12,592 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-43
+2026-01-29 14:15:12,630 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-43
+2026-01-29 14:15:12,663 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-43
+2026-01-29 14:15:12,792 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-44
+2026-01-29 14:15:12,831 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-44
+2026-01-29 14:15:12,863 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-44
+2026-01-29 14:15:12,992 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-45
+2026-01-29 14:15:13,030 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-45
+2026-01-29 14:15:13,063 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-45
+2026-01-29 14:15:13,192 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-46
+2026-01-29 14:15:13,232 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-46
+2026-01-29 14:15:13,264 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-46
+2026-01-29 14:15:13,392 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-47
+2026-01-29 14:15:13,429 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-47
+2026-01-29 14:15:13,464 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-47
+2026-01-29 14:15:13,591 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-48
+2026-01-29 14:15:13,630 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-48
+2026-01-29 14:15:13,665 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-48
+2026-01-29 14:15:13,791 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-49
+2026-01-29 14:15:13,830 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-49
+2026-01-29 14:15:13,863 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-49
+2026-01-29 14:15:13,992 INFO o.a.j.t.JMeterThread: Thread started: Home Page Test 1-50
+2026-01-29 14:15:14,030 INFO o.a.j.t.JMeterThread: Thread started: Vets Page Test 2-50
+2026-01-29 14:15:14,064 INFO o.a.j.t.JMeterThread: Thread started: Find Owners Test 3-50
+2026-01-29 14:16:04,210 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-13
+2026-01-29 14:16:04,211 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-13
+2026-01-29 14:16:04,212 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-8
+2026-01-29 14:16:04,212 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-8
+2026-01-29 14:16:04,221 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-1
+2026-01-29 14:16:04,221 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-1
+2026-01-29 14:16:04,225 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-14
+2026-01-29 14:16:04,226 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-14
+2026-01-29 14:16:04,229 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-17
+2026-01-29 14:16:04,229 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-17
+2026-01-29 14:16:04,241 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-25
+2026-01-29 14:16:04,242 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-25
+2026-01-29 14:16:04,242 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-46
+2026-01-29 14:16:04,242 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-46
+2026-01-29 14:16:04,245 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-41
+2026-01-29 14:16:04,246 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-41
+2026-01-29 14:16:04,247 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-48
+2026-01-29 14:16:04,248 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-48
+2026-01-29 14:16:04,253 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-33
+2026-01-29 14:16:04,254 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-33
+2026-01-29 14:16:04,257 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-11
+2026-01-29 14:16:04,257 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-43
+2026-01-29 14:16:04,257 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-11
+2026-01-29 14:16:04,257 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-43
+2026-01-29 14:16:04,259 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-2
+2026-01-29 14:16:04,259 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-2
+2026-01-29 14:16:04,260 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-20
+2026-01-29 14:16:04,260 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-20
+2026-01-29 14:16:04,264 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-6
+2026-01-29 14:16:04,264 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-6
+2026-01-29 14:16:04,264 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-28
+2026-01-29 14:16:04,264 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-28
+2026-01-29 14:16:04,265 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-37
+2026-01-29 14:16:04,265 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-23
+2026-01-29 14:16:04,265 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-23
+2026-01-29 14:16:04,265 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-37
+2026-01-29 14:16:04,267 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-3
+2026-01-29 14:16:04,267 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-3
+2026-01-29 14:16:04,268 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-24
+2026-01-29 14:16:04,268 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-24
+2026-01-29 14:16:04,270 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-34
+2026-01-29 14:16:04,271 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-34
+2026-01-29 14:16:04,273 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-47
+2026-01-29 14:16:04,273 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-40
+2026-01-29 14:16:04,273 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-47
+2026-01-29 14:16:04,273 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-40
+2026-01-29 14:16:04,278 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-8
+2026-01-29 14:16:04,278 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-8
+2026-01-29 14:16:04,283 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-1
+2026-01-29 14:16:04,283 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-1
+2026-01-29 14:16:04,286 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-32
+2026-01-29 14:16:04,287 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-32
+2026-01-29 14:16:04,288 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-27
+2026-01-29 14:16:04,288 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-27
+2026-01-29 14:16:04,292 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-35
+2026-01-29 14:16:04,292 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-35
+2026-01-29 14:16:04,292 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-32
+2026-01-29 14:16:04,292 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-32
+2026-01-29 14:16:04,293 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-11
+2026-01-29 14:16:04,293 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-11
+2026-01-29 14:16:04,295 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-21
+2026-01-29 14:16:04,295 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-21
+2026-01-29 14:16:04,296 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-36
+2026-01-29 14:16:04,296 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-36
+2026-01-29 14:16:04,300 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-22
+2026-01-29 14:16:04,301 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-22
+2026-01-29 14:16:04,302 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-10
+2026-01-29 14:16:04,302 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-10
+2026-01-29 14:16:04,305 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-21
+2026-01-29 14:16:04,305 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-16
+2026-01-29 14:16:04,305 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-9
+2026-01-29 14:16:04,305 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-21
+2026-01-29 14:16:04,305 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-16
+2026-01-29 14:16:04,305 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-9
+2026-01-29 14:16:04,306 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-23
+2026-01-29 14:16:04,306 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-23
+2026-01-29 14:16:04,308 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-44
+2026-01-29 14:16:04,308 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-31
+2026-01-29 14:16:04,308 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-31
+2026-01-29 14:16:04,308 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-44
+2026-01-29 14:16:04,309 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-20
+2026-01-29 14:16:04,309 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-20
+2026-01-29 14:16:04,313 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-47
+2026-01-29 14:16:04,313 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-47
+2026-01-29 14:16:04,315 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-38
+2026-01-29 14:16:04,315 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-12
+2026-01-29 14:16:04,315 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-38
+2026-01-29 14:16:04,315 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-12
+2026-01-29 14:16:04,315 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-26
+2026-01-29 14:16:04,315 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-26
+2026-01-29 14:16:04,317 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-7
+2026-01-29 14:16:04,318 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-7
+2026-01-29 14:16:04,318 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-7
+2026-01-29 14:16:04,318 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-7
+2026-01-29 14:16:04,320 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-39
+2026-01-29 14:16:04,320 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-39
+2026-01-29 14:16:04,321 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-14
+2026-01-29 14:16:04,321 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-14
+2026-01-29 14:16:04,323 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-28
+2026-01-29 14:16:04,323 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-28
+2026-01-29 14:16:04,324 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-45
+2026-01-29 14:16:04,325 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-45
+2026-01-29 14:16:04,325 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-9
+2026-01-29 14:16:04,325 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-9
+2026-01-29 14:16:04,327 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-3
+2026-01-29 14:16:04,327 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-3
+2026-01-29 14:16:04,328 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-49
+2026-01-29 14:16:04,328 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-49
+2026-01-29 14:16:04,329 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-36
+2026-01-29 14:16:04,329 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-36
+2026-01-29 14:16:04,329 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-22
+2026-01-29 14:16:04,329 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-6
+2026-01-29 14:16:04,329 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-22
+2026-01-29 14:16:04,329 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-6
+2026-01-29 14:16:04,331 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-30
+2026-01-29 14:16:04,331 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-10
+2026-01-29 14:16:04,332 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-10
+2026-01-29 14:16:04,332 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-30
+2026-01-29 14:16:04,333 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-26
+2026-01-29 14:16:04,333 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-26
+2026-01-29 14:16:04,335 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-37
+2026-01-29 14:16:04,335 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-49
+2026-01-29 14:16:04,335 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-37
+2026-01-29 14:16:04,335 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-49
+2026-01-29 14:16:04,336 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-21
+2026-01-29 14:16:04,336 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-21
+2026-01-29 14:16:04,337 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-50
+2026-01-29 14:16:04,337 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-12
+2026-01-29 14:16:04,337 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-50
+2026-01-29 14:16:04,337 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-12
+2026-01-29 14:16:04,337 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-24
+2026-01-29 14:16:04,337 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-24
+2026-01-29 14:16:04,339 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-44
+2026-01-29 14:16:04,339 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-44
+2026-01-29 14:16:04,341 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-43
+2026-01-29 14:16:04,341 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-9
+2026-01-29 14:16:04,341 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-2
+2026-01-29 14:16:04,342 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-43
+2026-01-29 14:16:04,342 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-9
+2026-01-29 14:16:04,342 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-2
+2026-01-29 14:16:04,344 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-19
+2026-01-29 14:16:04,344 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-19
+2026-01-29 14:16:04,346 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-15
+2026-01-29 14:16:04,346 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-15
+2026-01-29 14:16:04,347 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-5
+2026-01-29 14:16:04,347 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-17
+2026-01-29 14:16:04,347 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-17
+2026-01-29 14:16:04,347 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-38
+2026-01-29 14:16:04,347 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-38
+2026-01-29 14:16:04,347 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-29
+2026-01-29 14:16:04,347 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-5
+2026-01-29 14:16:04,348 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-29
+2026-01-29 14:16:04,348 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-5
+2026-01-29 14:16:04,348 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-5
+2026-01-29 14:16:04,348 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-46
+2026-01-29 14:16:04,348 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-46
+2026-01-29 14:16:04,351 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-23
+2026-01-29 14:16:04,351 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-23
+2026-01-29 14:16:04,353 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-40
+2026-01-29 14:16:04,354 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-40
+2026-01-29 14:16:04,357 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-37
+2026-01-29 14:16:04,357 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-37
+2026-01-29 14:16:04,360 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-19
+2026-01-29 14:16:04,361 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-19
+2026-01-29 14:16:04,362 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-42
+2026-01-29 14:16:04,363 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-42
+2026-01-29 14:16:04,364 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-35
+2026-01-29 14:16:04,364 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-3
+2026-01-29 14:16:04,365 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-35
+2026-01-29 14:16:04,365 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-3
+2026-01-29 14:16:04,367 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-50
+2026-01-29 14:16:04,367 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-4
+2026-01-29 14:16:04,367 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-4
+2026-01-29 14:16:04,367 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-50
+2026-01-29 14:16:04,367 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-18
+2026-01-29 14:16:04,367 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-4
+2026-01-29 14:16:04,367 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-4
+2026-01-29 14:16:04,367 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-18
+2026-01-29 14:16:04,370 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-5
+2026-01-29 14:16:04,370 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-2
+2026-01-29 14:16:04,370 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-5
+2026-01-29 14:16:04,370 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-2
+2026-01-29 14:16:04,370 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-15
+2026-01-29 14:16:04,371 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-15
+2026-01-29 14:16:04,371 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-31
+2026-01-29 14:16:04,371 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-31
+2026-01-29 14:16:04,371 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-31
+2026-01-29 14:16:04,372 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-31
+2026-01-29 14:16:04,373 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-39
+2026-01-29 14:16:04,373 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-16
+2026-01-29 14:16:04,373 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-16
+2026-01-29 14:16:04,373 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-29
+2026-01-29 14:16:04,373 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-39
+2026-01-29 14:16:04,373 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-29
+2026-01-29 14:16:04,374 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-44
+2026-01-29 14:16:04,374 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-44
+2026-01-29 14:16:04,375 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-30
+2026-01-29 14:16:04,375 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-30
+2026-01-29 14:16:04,376 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-39
+2026-01-29 14:16:04,376 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-39
+2026-01-29 14:16:04,377 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-4
+2026-01-29 14:16:04,377 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-4
+2026-01-29 14:16:04,377 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-15
+2026-01-29 14:16:04,377 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-15
+2026-01-29 14:16:04,378 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-30
+2026-01-29 14:16:04,378 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-18
+2026-01-29 14:16:04,378 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-18
+2026-01-29 14:16:04,378 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-30
+2026-01-29 14:16:04,380 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-12
+2026-01-29 14:16:04,380 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-12
+2026-01-29 14:16:04,380 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-43
+2026-01-29 14:16:04,380 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-43
+2026-01-29 14:16:04,382 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-42
+2026-01-29 14:16:04,382 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-42
+2026-01-29 14:16:04,383 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-45
+2026-01-29 14:16:04,383 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-45
+2026-01-29 14:16:04,383 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-13
+2026-01-29 14:16:04,383 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-13
+2026-01-29 14:16:04,384 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-34
+2026-01-29 14:16:04,384 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-34
+2026-01-29 14:16:04,385 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-20
+2026-01-29 14:16:04,385 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-20
+2026-01-29 14:16:04,387 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-27
+2026-01-29 14:16:04,387 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-27
+2026-01-29 14:16:04,389 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-13
+2026-01-29 14:16:04,389 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-13
+2026-01-29 14:16:04,390 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-1
+2026-01-29 14:16:04,390 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-1
+2026-01-29 14:16:04,390 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-35
+2026-01-29 14:16:04,390 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-35
+2026-01-29 14:16:04,390 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-26
+2026-01-29 14:16:04,390 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-26
+2026-01-29 14:16:04,391 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-32
+2026-01-29 14:16:04,391 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-32
+2026-01-29 14:16:04,392 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-25
+2026-01-29 14:16:04,392 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-45
+2026-01-29 14:16:04,392 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-25
+2026-01-29 14:16:04,392 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-45
+2026-01-29 14:16:04,393 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-17
+2026-01-29 14:16:04,393 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-17
+2026-01-29 14:16:04,395 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-41
+2026-01-29 14:16:04,395 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-41
+2026-01-29 14:16:04,395 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-11
+2026-01-29 14:16:04,395 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-11
+2026-01-29 14:16:04,397 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-50
+2026-01-29 14:16:04,397 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-16
+2026-01-29 14:16:04,397 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-50
+2026-01-29 14:16:04,397 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-36
+2026-01-29 14:16:04,397 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-16
+2026-01-29 14:16:04,397 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-36
+2026-01-29 14:16:04,398 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-48
+2026-01-29 14:16:04,398 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-48
+2026-01-29 14:16:04,398 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-29
+2026-01-29 14:16:04,399 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-29
+2026-01-29 14:16:04,399 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-42
+2026-01-29 14:16:04,399 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-42
+2026-01-29 14:16:04,400 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-18
+2026-01-29 14:16:04,400 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-18
+2026-01-29 14:16:04,400 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-24
+2026-01-29 14:16:04,400 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-24
+2026-01-29 14:16:04,401 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-7
+2026-01-29 14:16:04,401 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-7
+2026-01-29 14:16:04,402 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-49
+2026-01-29 14:16:04,403 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-49
+2026-01-29 14:16:04,403 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-27
+2026-01-29 14:16:04,403 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-27
+2026-01-29 14:16:04,403 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-40
+2026-01-29 14:16:04,403 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-19
+2026-01-29 14:16:04,403 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-40
+2026-01-29 14:16:04,403 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-19
+2026-01-29 14:16:04,404 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-14
+2026-01-29 14:16:04,404 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-14
+2026-01-29 14:16:04,405 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-41
+2026-01-29 14:16:04,405 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-41
+2026-01-29 14:16:04,405 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-6
+2026-01-29 14:16:04,405 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-6
+2026-01-29 14:16:04,406 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-10
+2026-01-29 14:16:04,406 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-10
+2026-01-29 14:16:04,407 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-28
+2026-01-29 14:16:04,407 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-46
+2026-01-29 14:16:04,407 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-28
+2026-01-29 14:16:04,407 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-8
+2026-01-29 14:16:04,407 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-46
+2026-01-29 14:16:04,407 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-8
+2026-01-29 14:16:04,409 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-33
+2026-01-29 14:16:04,409 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-33
+2026-01-29 14:16:04,409 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-38
+2026-01-29 14:16:04,409 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-38
+2026-01-29 14:16:04,409 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-48
+2026-01-29 14:16:04,409 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-48
+2026-01-29 14:16:04,409 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-33
+2026-01-29 14:16:04,409 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-33
+2026-01-29 14:16:04,410 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Home Page Test 1-47
+2026-01-29 14:16:04,410 INFO o.a.j.t.JMeterThread: Thread finished: Home Page Test 1-47
+2026-01-29 14:16:04,411 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-22
+2026-01-29 14:16:04,411 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-22
+2026-01-29 14:16:04,417 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Find Owners Test 3-34
+2026-01-29 14:16:04,417 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Vets Page Test 2-25
+2026-01-29 14:16:04,417 INFO o.a.j.t.JMeterThread: Thread finished: Find Owners Test 3-34
+2026-01-29 14:16:04,417 INFO o.a.j.t.JMeterThread: Thread finished: Vets Page Test 2-25
+2026-01-29 14:16:04,418 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-01-29 14:16:04,418 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)

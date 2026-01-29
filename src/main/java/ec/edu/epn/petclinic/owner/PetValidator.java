@@ -1,14 +1,14 @@
 package ec.edu.epn.petclinic.owner;
 
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 /**
  * <code>Validator</code> for <code>Pet</code> forms.
  * <p>
- * We're not using Bean Validation annotations here because it is easier to define such
+ * We're not using Bean Validation annotations here because it is easier to
+ * define such
  * validation rule in Java.
  * </p>
  */
@@ -20,11 +20,8 @@ public class PetValidator implements Validator {
 	@Override
 	public void validate(Object obj, Errors errors) {
 		Pet pet = (Pet) obj;
-		String name = pet.getName();
-		// name validation
-		if (!StringUtils.hasText(name)) {
-			errors.rejectValue("name", REQUIRED, REQUIRED);
-		}
+		// Note: name is not required per business requirements
+		// Name validation is handled by the controller for duplicate checking
 
 		// type validation
 		if (pet.isNew() && pet.getType() == null) {

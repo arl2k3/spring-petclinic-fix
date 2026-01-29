@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -58,8 +57,7 @@ class PetController {
 	@ModelAttribute("owner")
 	public Owner findOwner(@PathVariable("ownerId") int ownerId) {
 		Optional<Owner> optionalOwner = this.owners.findById(ownerId);
-		Owner owner = optionalOwner.orElseThrow(() -> new EntityNotFoundException("Owner", ownerId));
-		return owner;
+		return optionalOwner.orElseThrow(() -> new EntityNotFoundException("Owner", ownerId));
 	}
 
 	@ModelAttribute("pet")
@@ -149,8 +147,9 @@ class PetController {
 
 	/**
 	 * Updates the pet details if it exists or adds a new pet to the owner.
+	 * 
 	 * @param owner The owner of the pet
-	 * @param pet The pet with updated details
+	 * @param pet   The pet with updated details
 	 */
 	private void updatePetDetails(Owner owner, Pet pet) {
 		Integer id = pet.getId();
@@ -161,8 +160,7 @@ class PetController {
 			existingPet.setName(pet.getName());
 			existingPet.setBirthDate(pet.getBirthDate());
 			existingPet.setType(pet.getType());
-		}
-		else {
+		} else {
 			owner.addPet(pet);
 		}
 		this.owners.save(owner);
